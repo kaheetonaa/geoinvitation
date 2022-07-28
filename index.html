@@ -2,19 +2,23 @@
 <html>
 
 <head>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/css/ol.css" type="text/css">
+    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/build/ol.js"></script>
     <style>
-        @import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
+        @import 'https://fonts.googleapis.com/css?family=Square+Peg';
 
         body {
             background: #eee;
-            font-family: 'Lily Script One';
+            font-family: 'Square Peg';
         }
 
         .card {
             position: absolute;
-            top: 5%;
-            left: 5%;
-            width: 40%;
+            bottom: 0%;
+            left: 0%;
+            margin:5%;
+            width: 30%;
             aspect-ratio: 3 / 2;
             float: left;
             perspective: 500px;
@@ -38,36 +42,59 @@
         .front,
         .back {
             position: absolute;
+            padding:5%;
             height: 100%;
             width: 100%;
             background: white;
-            line-height: 300px;
-            color: #03446A;
+            line-height: 100%;
+            color: #252525;
             text-align: center;
-            font-size: 60px;
+            font-size: 100%;
             border-radius: 5px;
             backface-visibility: hidden;
         }
 
         .back {
-            background: #03446A;
-            color: white;
+            background: #ffffff;
+            color: rgb(25, 25, 25);
             transform: rotateY(180deg);
         }
 
         .photo {
             position: absolute;
             width: 90%;
-            top: 5%;
-            left: 5%;
             aspect-ratio: 3 / 2;
             background: url("https://aclassbeauty.fi/wp-content/uploads/2019/12/placeholder.png");
             background-size: 100% 100%;
+        }
+
+        .map {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
+            z-index: -1;
         }
     </style>
 </head>
 
 <body>
+    <div id="map" class="map"></div>
+    <script type="text/javascript">
+        var map = new ol.Map({
+            target: 'map',
+            layers: [
+                new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                })
+            ],
+            view: new ol.View({
+                center: ol.proj.fromLonLat([37.41, 8.82]),
+                zoom: 4
+            })
+        });
+    </script>
     <div class="card">
         <div class="content">
             <div class="front">
