@@ -17,23 +17,31 @@
 
         .card {
             position: absolute;
-            bottom: 0%;
-            left: 0%;
-            margin:5%;
-            width: 30%;
+            bottom: 5%;
+            margin: 5%;
             aspect-ratio: 3 / 2;
-            float: left;
-            perspective: 500px;
+            
+        }
+
+        @media only screen and (orientation: landscape) {
+            .card {
+                width: 30%;
+            }
+        }
+        @media only screen and (orientation: portrait) {
+            .card {
+                width: 80%;
+            }
         }
 
         .content {
             position: absolute;
             width: 100%;
             height: 100%;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-
             transition: transform 1s;
             transform-style: preserve-3d;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            
         }
 
         .card:hover .content {
@@ -44,16 +52,18 @@
         .front,
         .back {
             position: absolute;
-            padding:5%;
+            padding: 5%;
+
             height: 100%;
             width: 100%;
             background: white;
             line-height: 100%;
             color: #252525;
             text-align: center;
-            font-size: 100%;
+            font-size: bold;
             border-radius: 5px;
             backface-visibility: hidden;
+            
         }
 
         .back {
@@ -69,6 +79,13 @@
             background: url("https://th.bing.com/th/id/R.017e432ae53f5b2854688d11edd861ce?rik=RQuUwiWXowR2jA&riu=http%3a%2f%2fwww.birdsandblooms.com%2fwp-content%2fuploads%2f2015%2f06%2f1150869.jpg&ehk=WhyC4pNB1XDjBG5ohwlQaqmKcLJWtjGGp191CJbYLH8%3d&risl=&pid=ImgRaw&r=0");
             background-size: cover;
         }
+        .stamp {
+            margin: 5%;
+            position: absolute;
+            right:0px;
+            top:0px;
+            width:15%;
+        }
 
         .map {
             position: fixed;
@@ -77,6 +94,31 @@
             bottom: 0px;
             right: 0px;
             z-index: -1;
+        }
+
+        .column-left {
+            padding: 3%;
+            position: absolute;
+            float: left;
+            width: 60%;
+            border-right: thin solid #A9A9A9;
+            /* Should be removed. Only for demonstration */
+        }
+
+        .column-right {
+            padding:3%;
+            position: absolute;
+            right:0px;
+            width: 30%;
+            bottom:0px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
         }
     </style>
 </head>
@@ -103,7 +145,20 @@
                 <div class="photo"></div>
             </div>
             <div class="back">
-                <b>huy</b>
+                <div class="row">
+                <img class="stamp" src="https://upload.wikimedia.org/wikipedia/commons/1/13/Mauritius_stamp.jpg"></img>
+                    <div class="column-left">
+                        <h2>Dear my friend,</h2>
+                        <b>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut ornare lectus sit amet. Est pellentesque elit ullamcorper
+                            dignissim cras tincidunt. Varius vel pharetra vel turpis nunc eget lorem dolor sed. Est ante
+                            in nibh mauris cursus mattis molestie a iaculis. Mauris pharetra et ultrices neque
+                            ornare.</b>
+                    </div>
+                    <div class="column-right">
+                        <b>To: To Nga HUYNH</b>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
