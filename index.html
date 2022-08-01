@@ -179,7 +179,7 @@
             document.getElementById('photo').style.backgroundImage = "url('" + result['data']['link'] + "')"
             var description = JSON.parse(result['data']['description'])
             document.getElementById("content").innerHTML = description['content']
-            document.getElementById("to").innerHTML = description['to']
+            document.getElementById("to").innerHTML = 'To: ' + description['to']
             document.getElementById("stamp").src = "https://"+ description['stamp']
             var coord = [description['Latitude'], description['Longitude']]
             var marker_img = 'https://'+description['marker']
