@@ -84,7 +84,7 @@
             position: absolute;
             right: 0px;
             top: 0px;
-            width: 15%;
+            width: 20%;
         }
 
         .map {
@@ -136,12 +136,7 @@
                     <img id="stamp"></img>
                     <div class="column-left">
                         <h2 id="dear">Dear my friend,</h2>
-                        <b id="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Ut ornare lectus sit amet. Est pellentesque
-                            elit ullamcorper
-                            dignissim cras tincidunt. Varius vel pharetra vel turpis nunc eget lorem dolor sed. Est ante
-                            in nibh mauris cursus mattis molestie a iaculis. Mauris pharetra et ultrices neque
-                            ornare.</b>
+                        <b id="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ornare lectus sit amet. Est pellentesque elit ullamcorper dignissim cras tincidunt. Varius vel pharetra vel turpis nunc eget lorem dolor sed. Est ante in nibh mauris cursus mattis molestie a iaculis. Mauris pharetra et ultrices neque ornare.</b>
                     </div>
                     <div class="column-right">
                         <b>To: To Nga HUYNH</b>
@@ -184,9 +179,9 @@
             document.getElementById('photo').style.backgroundImage = "url('" + result['data']['link'] + "')"
             var description = JSON.parse(result['data']['description'])
             document.getElementById("content").innerHTML = description['content']
-            document.getElementById("stamp").src = "https://www."+ description['stamp']
+            document.getElementById("stamp").src = "https://"+ description['stamp']
             var coord = [description['Latitude'], description['Longitude']]
-            var marker_img = description['marker']
+            var marker_img = 'https://'+description['marker']
             console.log(coord)
             document.getElementById("dear").innerHTML = result['data']['title']
 
@@ -201,7 +196,7 @@
 
             map.on('load', function () {
                 map.loadImage(
-                    'https://upload.wikimedia.org/wikipedia/commons/7/7c/201408_cat.png',
+                    marker_img,
                     function (error, image) {
                         if (error) throw error;
                         map.addImage('cat', image);
