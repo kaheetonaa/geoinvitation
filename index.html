@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/css/ol.css" type="text/css">
-    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.15.1/build/ol.js"></script>
+    <script src="https://unpkg.com/maplibre-gl@2.1.9/dist/maplibre-gl.js"></script>
+<link href="https://unpkg.com/maplibre-gl@2.1.9/dist/maplibre-gl.css" rel="stylesheet" />
     <style>
         @import 'https://fonts.googleapis.com/css?family=Square+Peg';
 
@@ -77,7 +76,6 @@
             position: absolute;
             width: 90%;
             aspect-ratio: 3 / 2;
-            background: url("https://th.bing.com/th/id/OIP.XWxVjgFLbA_XUhXW_tublAHaE8?pid=ImgDet&rs=1");
             background-size: cover;
         }
 
@@ -181,43 +179,50 @@
         })
         console.log(document.getElementById('photo').style.backgroundImage)
 
-        const initial_position = [24.93545, 60.16952] //long- lat
-        const iconFeature = new ol.Feature({
-            geometry: new ol.geom.Point(ol.proj.fromLonLat(initial_position)),//position
-            name: 'Quang Huy NGUYEN',
-        });
+        
+    var map = new maplibregl.Map({
+      center:[24.93545, 60.16952],
+      zoom:16,
+      pitch:30,
+        container: 'map',
+        style:
+            'https://api.maptiler.com/maps/b3be053d-d0ae-4eb9-87ae-1a3b68a6cba4/style.json?key=VPYOSL6vFe4X2oVMzKeu'
+    });
 
-        const iconStyle = new ol.style.Style({
-            image: new ol.style.Icon({
-                anchor: [0.5, 0.5],
-                anchorXUnits: 'fraction',
-                anchorYUnits: 'fraction',
-                src: 'https://www.spriters-resource.com/resources/sheet_icons/177/179796.png',
-            }), //emoji style
-        });
+    map.on('load', function () {
+        map.loadImage(
+            'https://upload.wikimedia.org/wikipedia/commons/7/7c/201408_cat.png',
+            function (error, image) {
+                if (error) throw error;
+                map.addImage('cat', image);
+                map.addSource('point', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': [
+                            {
+                                'type': 'Feature',
+                                'geometry': {
+                                    'type': 'Point',
+                                    'coordinates': [24.93545, 60.16952]
+                                }
+                            }
+                        ]
+                    }
+                });
+                map.addLayer({
+                    'id': 'points',
+                    'type': 'symbol',
+                    'source': 'point',
+                    'layout': {
+                        'icon-image': 'cat',
+                        'icon-size': .25
+                    }
+                });
+            }
+        );
+    });
 
-        iconFeature.setStyle(iconStyle);
-
-        const vectorSource = new ol.source.Vector({
-            features: [iconFeature],
-        });
-
-        const vectorLayer = new ol.layer.Vector({
-            source: vectorSource,
-        });
-
-
-        var map = new ol.Map({
-            target: 'map',
-            layers: [new ol.layer.Tile({
-                source: new ol.source.OSM()
-            }), vectorLayer
-            ],
-            view: new ol.View({
-                center: ol.proj.fromLonLat(initial_position),
-                zoom: 16
-            })
-        });
     </script>
 </body>
 
