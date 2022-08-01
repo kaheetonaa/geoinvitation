@@ -139,7 +139,7 @@
                         <b id="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut ornare lectus sit amet. Est pellentesque elit ullamcorper dignissim cras tincidunt. Varius vel pharetra vel turpis nunc eget lorem dolor sed. Est ante in nibh mauris cursus mattis molestie a iaculis. Mauris pharetra et ultrices neque ornare.</b>
                     </div>
                     <div class="column-right">
-                        <b>To: To Nga HUYNH</b>
+                        <b id="to">Lorem ipsum</b>
                     </div>
                 </div>
             </div>
@@ -179,6 +179,7 @@
             document.getElementById('photo').style.backgroundImage = "url('" + result['data']['link'] + "')"
             var description = JSON.parse(result['data']['description'])
             document.getElementById("content").innerHTML = description['content']
+            document.getElementById("to").innerHTML = description['to']
             document.getElementById("stamp").src = "https://"+ description['stamp']
             var coord = [description['Latitude'], description['Longitude']]
             var marker_img = 'https://'+description['marker']
