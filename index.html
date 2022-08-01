@@ -16,21 +16,29 @@
 
         .card {
             position: absolute;
-            bottom: 5%;
+            
             margin: 5%;
             aspect-ratio: 3 / 2;
 
         }
 
+        #attribution {
+            position: absolute;
+            top:1%;
+            right:1%;
+        }
+
         @media only screen and (orientation: landscape) {
             .card {
                 width: 30%;
+                bottom: 5%;
             }
         }
 
         @media only screen and (orientation: portrait) {
             .card {
                 width: 80%;
+                bottom: 8%;
             }
         }
 
@@ -40,7 +48,7 @@
             height: 100%;
             transition: transform 1s;
             transform-style: preserve-3d;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            
 
         }
 
@@ -56,18 +64,19 @@
 
             height: 100%;
             width: 100%;
-            background: white;
+            background: url(img/background.jpg);
+            background-size:cover;
             line-height: 100%;
             color: #252525;
             text-align: center;
             font-size: bold;
             border-radius: 5px;
             backface-visibility: hidden;
+            box-shadow: -10px 10px 20px rgba(0, 0, 0, .1);
 
         }
 
         .back {
-            background: #ffffff;
             color: rgb(25, 25, 25);
             transform: rotateY(180deg);
         }
@@ -124,6 +133,7 @@
 </head>
 
 <body>
+    <p id="attribution">Image by rawpixel.com| Hosted by Imgur</p>
     <div id="map" class="map"></div>
     <div class="card">
         <div class="content">
