@@ -9,9 +9,25 @@
   import Logo from './lib/img/Logo.png';
   import Geolocation from './lib/img/Geolocation.png';
   import GreatCircle from 'great-circle';
+  import Papa from "papaparse";
+
+  const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+let id = urlParams.get('id')
+let inviter;
+
+  Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vQRyUg1BNt9EEpGsz8sCFGsuXVCgAiOHIuYQWLDEEOOFZCBWxSxObMvNoauAvPpf4mATc5unO-RTRJt/pub?gid=332641665&single=true&output=csv', {
+    download: true,
+    complete: results => {
+        inviter=results['data'][id][1];
+    }
+})
+
   var currentPos={lng:0,lat:0};
   let dist=-1;
   let button="Ẩn🔻";
+ 
+
  
 const markers=[
     {
@@ -85,7 +101,7 @@ setInterval(checkGeo, 5000);
       <img src="{G1}" alt="Avatar" style="height:100%">
     </div>
     <div class="flip-card-back">
-     <div style="position:absolute;text-align:center;top:20%;z-index:210;color:red;width:100%">Các bạn của tui</div>
+     <div style="position:absolute;text-align:center;top:20%;z-index:210;color:red;width:100%">{inviter}</div>
      <img src="{G2}" alt="Avatar" style="height:100%">
     
     </div>
