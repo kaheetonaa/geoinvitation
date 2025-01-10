@@ -101,7 +101,7 @@ setInterval(checkGeo, 5000);
       <img src="{G1}" alt="Avatar" style="height:100%">
     </div>
     <div class="flip-card-back">
-     <div style="position:absolute;text-align:center;top:18%;z-index:210;color:red;width:120%">{inviter}</div>
+     <div style="position:absolute;text-align:center;font-size:.8em;top:20%;z-index:210;color:#4A5D85;width:120%">{inviter}</div>
      <img src="{G2}" alt="Avatar" style="height:100%">
     
     </div>
