@@ -25,7 +25,7 @@ let inviter;
 
   var currentPos={lng:0,lat:0};
   let dist=-1;
-  let button="Ẩn🔻";
+  let button="Phóng ⛶";
  
 
  
@@ -50,14 +50,14 @@ function checkGeo() {
 }
 
 
-function movedown() {
+function scale() {
   let element = document.getElementById("invitation");
   console.log(element)
-  element.classList.toggle('movedown')
-  if (button=="Ẩn🔻") {
-    button = "Hiện🔺"
+  element.classList.toggle('scale')
+  if (button=="Phóng ⛶") {
+    button = "Thu ⛶"
   } else {
-    button = "Ẩn🔻"
+    button = "Phóng ⛶"
   }
 }
 
@@ -91,11 +91,11 @@ setInterval(checkGeo, 5000);
     </Marker>
 </MapLibre>
 {#if dist!=-1}
-<div style="z-index:205;position:absolute;right:5vw;top:5vw;width:55%">Khoảng cách giữa bạn và đám cưới Tố Nga và Quang Huy chỉ là {dist}km</div>
+<div style="z-index:205;position:absolute;right:5vw;top:5vw;width:50vw;padding:10px;border-style: solid;border-radius: 5px;border-width:1px;border-color:white;background-color:#FFFFFFCC;color:#4A5D85;"><p>Khoảng cách giữa bạn và đám cưới Tố Nga và Quang Huy chỉ là {dist}km<p><a href=https://maps.app.goo.gl/wR6rfXBBN24NvBq6A>Địa điểm google</a><br><a href="https://osm.org/go/4dt1IG5Pa?m=&node=12463420847">Địa điểm OSM</a></div>
 {/if}
 
 <div id='invitation'>
-<button style="z-index:207;position:absolute;right:0px;top:-20px;" onclick={movedown}>{button}</button>
+<button style="z-index:207;position:absolute;right:-35px;top:-40px;" onclick={scale}>{button}</button>
   <div class="flip-card-inner">
     <div class="flip-card-front">
       <img src="{G1}" alt="Avatar" style="height:100%">
@@ -118,10 +118,11 @@ setInterval(checkGeo, 5000);
   perspective: 1000px; /* Remove this if you don't want the 3D effect */
   bottom:5vh;
   left: 5%;
+  z-index:206
 }
 
-:global(.movedown){
-  transform: translate(0px, 50vh);
+:global(.scale){
+  transform: scale(1.5) translate(7.5vw,-10vh);
   transition-duration: 2s;
 }
 
