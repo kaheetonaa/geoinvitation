@@ -95,13 +95,13 @@ setInterval(checkGeo, 5000);
 {/if}
 
 <div id='invitation'>
-<button style="z-index:207;position:absolute;right:-35px;top:-40px;" onclick={scale}>{button}</button>
+<button style="z-index:207;position:absolute;right:0px;top:-40px;" onclick={scale}>{button}</button>
   <div class="flip-card-inner">
     <div class="flip-card-front">
       <img src="{G1}" alt="Avatar" style="height:100%">
     </div>
     <div class="flip-card-back">
-     <div style="position:absolute;text-align:center;top:20%;z-index:210;color:red;width:100%">{inviter}</div>
+     <div style="position:absolute;text-align:center;top:20%;z-index:210;color:red;width:120%">{inviter}</div>
      <img src="{G2}" alt="Avatar" style="height:100%">
     
     </div>
