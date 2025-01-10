@@ -91,7 +91,7 @@ setInterval(checkGeo, 5000);
     </Marker>
 </MapLibre>
 {#if dist!=-1}
-<div style="z-index:205;position:absolute;right:5vw;top:5vw;width:50vw;padding:10px;border-style: solid;border-radius: 5px;border-width:1px;border-color:white;background-color:#FFFFFFCC;color:#4A5D85;"><p>Khoảng cách giữa bạn và đám cưới Tố Nga và Quang Huy chỉ là {dist}km<p><a href=https://maps.app.goo.gl/wR6rfXBBN24NvBq6A>Địa điểm google</a><br><a href="https://osm.org/go/4dt1IG5Pa?m=&node=12463420847">Địa điểm OSM</a></div>
+<div style="z-index:205;position:absolute;right:5vw;top:5vw;width:50vw;padding:10px;border-style: solid;border-radius: 5px;border-width:1px;border-color:white;background-color:#FFFFFFCC;color:#4A5D85;font-family: 'Playwrite US Modern', serif;"><p>Khoảng cách giữa bạn và đám cưới Tố Nga và Quang Huy chỉ là {dist}km<p><a href=https://maps.app.goo.gl/wR6rfXBBN24NvBq6A>Địa điểm google</a><br><a href="https://osm.org/go/4dt1IG5Pa?m=&node=12463420847">Địa điểm OSM</a></div>
 {/if}
 
 <div id='invitation'>
@@ -101,7 +101,7 @@ setInterval(checkGeo, 5000);
       <img src="{G1}" alt="Avatar" style="height:100%">
     </div>
     <div class="flip-card-back">
-     <div style="position:absolute;text-align:center;top:20%;z-index:210;color:red;width:120%">{inviter}</div>
+     <div style="position:absolute;text-align:center;top:18%;z-index:210;color:red;width:120%">{inviter}</div>
      <img src="{G2}" alt="Avatar" style="height:100%">
     
     </div>
@@ -111,6 +111,7 @@ setInterval(checkGeo, 5000);
 <style>
 /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
 #invitation {
+  font-family: 'Playwrite US Modern';
   position:absolute;
   background-color: transparent;
   width: 30vh;
