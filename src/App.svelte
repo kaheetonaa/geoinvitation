@@ -24,6 +24,7 @@ let back= {'vi':G2,'en':E2}
 let text_height={'vi':'19.5%','en':'23%'}
 let button_scale_up={'vi':'Phóng','en':'Maximize'}
 let button_scale_down={'vi':'Thu','en':'Minimize'}
+let location_text={'vi':'Địa điểm','en':'Location on'}
 
   Papa.parse('https://docs.google.com/spreadsheets/d/e/2PACX-1vQRyUg1BNt9EEpGsz8sCFGsuXVCgAiOHIuYQWLDEEOOFZCBWxSxObMvNoauAvPpf4mATc5unO-RTRJt/pub?gid=332641665&single=true&output=csv', {
     download: true,
@@ -99,7 +100,7 @@ setInterval(checkGeo, 5000);
     </Marker>
 </MapLibre>
 {#if dist!=-1}
-<div style="z-index:205;position:absolute;right:5vw;top:5vw;width:50vw;padding:10px;border-style: solid;border-radius: 5px;border-width:1px;border-color:white;background-color:#FFFFFFCC;color:#4A5D85;font-family: 'Playwrite US Modern', serif;"><p>{dist_des[locale]}{dist}km<p><a href=https://maps.app.goo.gl/wR6rfXBBN24NvBq6A>Địa điểm google</a><br><a href="https://osm.org/go/4dt1IG5Pa?m=&node=12463420847">Địa điểm OSM</a></div>
+<div style="z-index:205;position:absolute;right:5vw;top:5vw;width:50vw;padding:10px;border-style: solid;border-radius: 5px;border-width:1px;border-color:white;background-color:#FFFFFFCC;color:#4A5D85;font-family: 'Playwrite US Modern', serif;"><p>{dist_des[locale]}{dist}km<p><a href=https://maps.app.goo.gl/wR6rfXBBN24NvBq6A>{location_text[locale]} Google</a><br><a href="https://osm.org/go/4dt1IG5Pa?m=&node=12463420847">location_text[locale]} OSM</a></div>
 {/if}
 
 <div id='invitation'>
